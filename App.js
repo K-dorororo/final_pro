@@ -8,10 +8,10 @@ const App = () => {
   });
   const [error, setError] = useState(null);
 
-  // 데이터 가져오기 함수
+  // 데이터 가져오기
   const fetchData = async () => {
     try {
-      const response = await fetch('http://192.168.0.6:5000/data'); // 서버 URL 확인
+      const response = await fetch('http://192.168.0.11:3000/api/data');  // 서버 URL에 맞게 수정
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -31,7 +31,7 @@ const App = () => {
     // 3초마다 데이터 갱신
     const intervalId = setInterval(() => {
       fetchData();
-    }, 3000); // 3000ms = 3초
+    }, 6000); // 
 
     // 컴포넌트 언마운트 시 인터벌 클리어
     return () => clearInterval(intervalId);
@@ -57,3 +57,5 @@ const App = () => {
 };
 
 export default App;
+
+
